@@ -6,6 +6,7 @@ import { MongoClient } from "mongodb";
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./auth.js";
 import productRoutes from "./modules/product/product.route.js";
+import cartRoutes from "./modules/cart/cart.route.js";
 
 const app = express();
 
@@ -24,7 +25,7 @@ app.use(
 
 app.use(express.json());
 app.use("/api/products", productRoutes);
-
+app.use("/api/cart", cartRoutes);
 app.all("/api/auth/*", toNodeHandler(auth));
 
 /* --------------------------

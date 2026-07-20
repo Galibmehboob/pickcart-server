@@ -39,6 +39,14 @@ export const ProductService = {
     })
     .toArray();
 },
+async getProducts() {
+  return await collection
+    .find({})
+    .sort({
+      createdAt: -1,
+    })
+    .toArray();
+},
 
   async getSingleProduct(id: string) {
     return await collection.findOne({

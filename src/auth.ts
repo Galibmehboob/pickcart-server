@@ -8,9 +8,10 @@ import { MongoClient } from "mongodb";
 const client = new MongoClient(process.env.MONGODB_URI!);
 
 await client.connect();
+console.log(" MongoDB Connected Successfully");
 
 export const db = client.db(process.env.DB_NAME!);
-
+console.log(` Database: ${db.databaseName}`);
 export const auth = betterAuth({
   database: mongodbAdapter(db),
 
